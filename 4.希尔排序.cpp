@@ -32,6 +32,9 @@ void RrintArray(int* arr, int length)
 	cout << endl;
 }
 
+
+
+
 void ShellSort(int arrp[], int length)
 {
 	
@@ -73,7 +76,7 @@ int main()
 		Arr[i] = rand() % size;
 	}
 	long t_start = getSystemTime();
-	ShellSort(Arr, size);
+	xir(Arr, size);
 	long t_end = getSystemTime();
 	printf("希尔排序%d个元素所需时间:%d毫秒\n", MAX, t_end - t_start);
 	//RrintArray(Arr, size);
