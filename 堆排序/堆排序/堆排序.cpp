@@ -87,12 +87,75 @@ void HeapSort(int myArr[],int length)
 	
 }
 
+//øÏ≈≈
+void QuickSort(int arr[], int start, int end)
+{
+	int p_start = start;
+	int p_end = end;
+	int scalar = arr[start];
+	if (p_start < p_end)
+	{
+		while (p_start < p_end)
+		{
+			while (p_start < p_end && arr[p_end] > scalar)
+				p_end--;
+			if (p_start < p_end)
+			{
+				arr[p_start] = arr[p_end];
+				p_start++;
+			}
+			while (p_start < p_end && arr[p_start] < scalar)
+				p_start++;
+			if (p_start < p_end)
+			{
+				arr[p_end] = arr[p_start];
+				p_end--;
+			}
+		}
+		arr[p_start] = scalar;
+		QuickSort(arr, start, p_end-1);
+		QuickSort(arr, p_start + 1, end);
+	}
+}
+
+//œ£∂˚≈≈–Ú
+void ShellSort(int arrp[], int length)
+{
+	int increase = length; //‘ˆ¡ø
+	do 
+	{
+		increase = increase / 3 + 1;
+		for (int i = 0; i < increase; i++)
+		{
+			for (int j = i + increase; j < length; j += increase)
+			{
+				if (arrp[j] < arrp[j - increase])
+				{
+					int temp = arrp[j];
+					int k = j - increase;
+					while (k >= 0 && temp < arrp[k])
+					{
+						arrp[k + increase] = arrp[k];
+						k -= increase;
+					}
+					arrp[k + increase] = temp;
+				}
+			}
+		}
+	} while (increase > 1);
+}
+
+
+
 int main()
 {
 	int* arr = CreateArray();
 	
-	HeapSort(arr, MAX);
-	PrintArray(arr, MAX);
 	
+	ShellSort(arr, MAX);
+	PrintArray(arr, MAX);
+	QuickSort(arr, 0, MAX - 1);
+	HeapSort(arr, MAX);
+
 	return 0;
 }
