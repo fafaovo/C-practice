@@ -156,6 +156,6 @@ int main()
 	PrintArray(arr, MAX);
 	QuickSort(arr, 0, MAX - 1);
 	HeapSort(arr, MAX);
-
+	cout << 1 / 2 << endl;
 	return 0;
 }
