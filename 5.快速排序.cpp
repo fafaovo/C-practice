@@ -20,9 +20,9 @@ void QuickSort(int arr[], int start, int end)
 	//定义头和尾
 	int pStart = start;
 	int pEnd = end;
-	int temp = arr[pStart]; //定义基准树
 	if (pEnd > pStart) //当尾指针大于头指针时
 	{
+		int temp = arr[pStart]; //定义基准树
 		while (pEnd > pStart)
 		{
 			//从右向左去找比基准数小的
